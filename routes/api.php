@@ -11,7 +11,7 @@ Route::post('login', [AuthController::class, 'login']);
 
 
 Route::post('/upload-image' , [ImageController::class,'store']);
-Route::get('/get-image/{section}/{model}',[ImageController::class,'getimage']);
+Route::get('/get-image/{section}/{mode}',[ImageController::class,'getimage']);
 
 Route::get('/user', function (Request $request) {
     return $request->user();

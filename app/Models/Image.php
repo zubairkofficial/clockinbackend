@@ -12,5 +12,6 @@ class Image extends Model
         'section',
         'image_path',
         'mode',
+        'image_id'
     ];
 }

@@ -14,7 +14,9 @@ class PlanController extends Controller
             'price' => 'required|string',
             'employee' => 'required|string',
             'tasks' => 'required|string',
-            'plan_feature' => 'required|json'
+            'plan_feature' => 'required|json',
+            'plan_type' => 'required',
+            'offline_mode' => 'nullable',
         ]);
 
         $plan = new Plan();
@@ -23,6 +25,8 @@ class PlanController extends Controller
         $plan->employee = $request->employee;
         $plan->tasks = $request->tasks;
         $plan->plan_feature = $request->plan_feature;
+        $plan->plan_type = $request->plan_type;
+        $plan->offline_mode = $request->offline_mode;
         $plan->save();
 
         return response()->json(['success' => 'Plan added successfully']);
@@ -43,7 +47,9 @@ class PlanController extends Controller
             'price' => $request->price,
             'employee' => $request->employee,
             'tasks' => $request->tasks,
-            'plan_feature' => $request->plan_feature
+            'plan_type' => $request->plan_type,
+            'plan_feature' => $request->plan_feature,
+            'offline_mode' => $request->offline_mode,
         ]);
         return response()->json(["message",'Updated Succesfully']);
     }

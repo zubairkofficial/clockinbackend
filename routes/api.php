@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AchievementsController;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -36,7 +38,22 @@ Route::prefix('plans')->group(function(){
     Route::post('update/{id}',[PlanController::class ,'update']);
 });
 
+Route::prefix('faqs')->group(function(){
+    Route::post('store',[FAQController::class , 'store']);
+    Route::get('show',[FAQController::class , 'show']);
+    Route::get('delete/{id}',[FAQController::class , 'destroy']);
+    Route::post('update/{id}',[FAQController::class ,'update']);
+});
 
+
+Route::prefix('news')->group(function(){
+    Route::post('store',[NewsController::class , 'store']);
+    Route::get('show',[NewsController::class , 'show']);
+    Route::get('latest',[NewsController::class , 'latest']);
+    Route::get('delete/{id}',[NewsController::class , 'destroy']);
+    Route::get('detail/{slug}',[NewsController::class , 'detail']);
+    Route::post('update/{id}',[NewsController::class ,'update']);
+});
 
 Route::get('/user', function (Request $request) {
     return $request->user();

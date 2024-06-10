@@ -5,16 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Plan extends Model
+class FAQ extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'price',
-        'offline_mode',
-        'employee',
-        'task',
-        'plan_feature',
-        'plan_type'
+        'image',
+        'title',
+        'description'
     ];
 }

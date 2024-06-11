@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\AchievementsController;
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -53,6 +55,16 @@ Route::prefix('news')->group(function(){
     Route::get('delete/{id}',[NewsController::class , 'destroy']);
     Route::get('detail/{slug}',[NewsController::class , 'detail']);
     Route::post('update/{id}',[NewsController::class ,'update']);
+});
+
+Route::prefix('question')->group(function(){
+    Route::post('store',[QuestionController::class , 'store']);
+    Route::get('show',[QuestionController::class , 'show']);
+});
+
+Route::prefix('content')->group(function(){
+    Route::post('store',[ContentController::class , 'store']);
+    Route::get('show/{section}',[ContentController::class , 'show']);
 });
 
 Route::get('/user', function (Request $request) {

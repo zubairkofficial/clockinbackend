@@ -4,6 +4,7 @@ use App\Http\Controllers\AchievementsController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\FooterController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlanController;
@@ -45,6 +46,13 @@ Route::prefix('faqs')->group(function(){
     Route::get('show',[FAQController::class , 'show']);
     Route::get('delete/{id}',[FAQController::class , 'destroy']);
     Route::post('update/{id}',[FAQController::class ,'update']);
+});
+
+Route::prefix('footer')->group(function(){
+    Route::post('store',[FooterController::class , 'store']);
+    Route::get('show',[FooterController::class , 'show']);
+    Route::get('delete/{id}',[FooterController::class , 'destroy']);
+    Route::post('update/{id}',[FooterController::class ,'update']);
 });
 
 

@@ -21,7 +21,7 @@ class FooterController extends Controller
         $data = Footer::all();
         return response()->json(['data'=>$data]);
     }
-    public function delete($id){
+    public function destroy($id){
         $data = Footer::findOrFail($id);
         $data->delete();
         return response()->json(['message','Deleted Successfully']);

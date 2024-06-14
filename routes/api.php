@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AchievementsController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FooterController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\StatController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -54,6 +56,20 @@ Route::prefix('footer')->group(function(){
     Route::get('delete/{id}',[FooterController::class , 'destroy']);
     Route::post('update/{id}',[FooterController::class ,'update']);
 });
+Route::prefix('download')->group(function(){
+    Route::post('store',[DownloadController::class , 'store']);
+    Route::get('show',[DownloadController::class , 'show']);
+    Route::get('delete/{id}',[DownloadController::class , 'destroy']);
+    Route::post('update/{id}',[DownloadController::class ,'update']);
+});
+
+Route::prefix('stat')->group(function(){
+    Route::post('store',[StatController::class , 'store']);
+    Route::get('show',[StatController::class , 'show']);
+    Route::post('update/{id}', [StatController::class, 'update']);
+
+});
+
 
 
 Route::prefix('news')->group(function(){

@@ -11,6 +11,7 @@ class Download extends Model
     protected $fillable =[
         'heading',
         'subheading',
-        'version'
+        'version',
+        'file'
     ];
 }

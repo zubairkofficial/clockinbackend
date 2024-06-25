@@ -61,6 +61,7 @@ Route::prefix('download')->group(function(){
     Route::get('show',[DownloadController::class , 'show']);
     Route::get('delete/{id}',[DownloadController::class , 'destroy']);
     Route::post('update/{id}',[DownloadController::class ,'update']);
+    Route::get('download-file',[DownloadController::class,'download']);
 });
 
 Route::prefix('stat')->group(function(){

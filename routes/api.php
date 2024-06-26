@@ -21,7 +21,7 @@ Route::post('login', [AuthController::class, 'login']);
 
 
 Route::post('/upload-image' , [ImageController::class,'store']);
-Route::get('/get-image/{section}/{mode}',[ImageController::class,'getimage']);
+Route::post('/get-image',[ImageController::class,'getimage']);
 
 Route::post('/addfeature',[FeatureController::class,'add']);
 Route::get('/getfeature',[FeatureController::class,'show']);
@@ -89,7 +89,7 @@ Route::prefix('question')->group(function(){
 
 Route::prefix('content')->group(function(){
     Route::post('store',[ContentController::class , 'store']);
-    Route::get('show/{section}',[ContentController::class , 'show']);
+    Route::get('show',[ContentController::class , 'show']);
 });
 
 Route::get('/user', function (Request $request) {

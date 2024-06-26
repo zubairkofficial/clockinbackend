@@ -17,9 +17,9 @@ class ContentController extends Controller
         );
         return response()->json(['data', $data]);
     }
-    public function show($section)
+    public function show()
     {
-        $data = Content::where('section', $section)->first();
+        $data = Content::all();
 
         return response()->json(['data' => $data]);
     }

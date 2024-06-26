@@ -36,12 +36,19 @@ class ImageController extends Controller
     }
 }
 
-public function getimage($section, $mode){
-    $image = Image::where('section', $section)->where('mode', $mode)->first();
-    if ($image) {
+public function getimage(Request $request)
+{
+    $sections = $request->input('sections');
+    $mode = $request->input('mode');
+    $images = Image::whereIn('section', $sections)
+                   ->where('mode', $mode)
+                   ->get();
+
+    $images->each(function ($image) {
         $image->image_url = Storage::url($image->image_path);
-    }
-    return response()->json($image);
+    });
+
+    return response()->json(['images' => $images]);
 }
 
 }

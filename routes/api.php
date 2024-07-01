@@ -67,6 +67,7 @@ Route::prefix('download')->group(function(){
 Route::prefix('stat')->group(function(){
     Route::post('store',[StatController::class , 'store']);
     Route::get('show',[StatController::class , 'show']);
+    Route::get('delete/{id}',[StatController::class , 'destroy']);
     Route::post('update/{id}', [StatController::class, 'update']);
 
 });

@@ -53,5 +53,10 @@ class StatController extends Controller
         $data = Stat::all();
         return response()->json(['data' => $data]);
     }
+    public function destroy($id){
+        $data = Stat::findOrFail($id);
+        $data->delete();
+        return response()->json(['message','Deleted Successfully']);
+    }
     
 }

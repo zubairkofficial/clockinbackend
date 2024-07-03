@@ -9,6 +9,8 @@ use App\Http\Controllers\FooterController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\PrivacyController;
+use App\Http\Controllers\TermController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\StatController;
 use Illuminate\Http\Request;
@@ -69,6 +71,20 @@ Route::prefix('stat')->group(function(){
     Route::get('show',[StatController::class , 'show']);
     Route::get('delete/{id}',[StatController::class , 'destroy']);
     Route::post('update/{id}', [StatController::class, 'update']);
+
+});
+Route::prefix('privacy')->group(function(){
+    Route::post('store',[PrivacyController::class , 'store']);
+    Route::get('show',[PrivacyController::class , 'show']);
+    Route::get('delete/{id}',[PrivacyController::class , 'destroy']);
+    Route::post('update/{id}', [PrivacyController::class, 'update']);
+
+});
+Route::prefix('term')->group(function(){
+    Route::post('store',[TermController::class , 'store']);
+    Route::get('show',[TermController::class , 'show']);
+    Route::get('delete/{id}',[TermController::class , 'destroy']);
+    Route::post('update/{id}', [TermController::class, 'update']);
 
 });
 

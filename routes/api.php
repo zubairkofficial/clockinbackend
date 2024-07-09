@@ -9,6 +9,7 @@ use App\Http\Controllers\FooterController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\SEOController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\TermController;
 use App\Http\Controllers\QuestionController;
@@ -88,6 +89,13 @@ Route::prefix('term')->group(function(){
 
 });
 
+Route::prefix('seo')->group(function(){
+    Route::post('update/{id}', [SEOController::class, 'update']);
+    Route::post('store',[SEOController::class , 'store']);
+    Route::get('show',[SEOController::class , 'show']);
+    Route::get('showadmin',[SEOController::class , 'showadmin']);
+    Route::get('delete/{id}',[SEOController::class , 'destroy']);
+});
 
 
 Route::prefix('news')->group(function(){

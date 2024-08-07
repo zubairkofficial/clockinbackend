@@ -12,6 +12,7 @@ use App\Http\Controllers\PlanController;
 use App\Http\Controllers\SEOController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\TermController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\StatController;
 use Illuminate\Http\Request;
@@ -116,6 +117,11 @@ Route::prefix('content')->group(function(){
     Route::post('store',[ContentController::class , 'store']);
     Route::get('show',[ContentController::class , 'show']);
 });
+Route::prefix('page')->group(function(){
+    Route::post('store',[PageController::class , 'store']);
+    Route::get('show/{page_id}',[PageController::class , 'show']);
+});
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();

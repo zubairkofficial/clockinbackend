@@ -15,6 +15,7 @@ class PageController extends Controller
             'rows' => 'required|array',
             'rows.*.columns' => 'required|array',
             'rows.*.columns.*.content' => 'nullable',
+            'rows.*.columns.*.type' => 'nullable',
             'rows.*.columns.*.style' => 'nullable|array',
         ]);
 
@@ -34,6 +35,7 @@ class PageController extends Controller
                 \Log::info('Column Data:', $columnData);
 
                 $content = $columnData['content'];
+                $type = $columnData['type'];
 
                 $fileKey = "rows.$rowIndex.columns.$columnIndex.content";
                 if ($request->hasFile($fileKey)) {
@@ -46,6 +48,7 @@ class PageController extends Controller
                     'row_id' => $row->id,
                     'data' => json_encode([
                         'content' => $content,
+                        'type' => $type,
                         'style' => $columnData['style'] ?? [],
                     ]),
                 ]);
